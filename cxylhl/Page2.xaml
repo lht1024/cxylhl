@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="cxylhl.Page2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:cxylhl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <Image Source="Assets/FullImage.png"
+               Stretch="Uniform"
+               Width="150"
+               Height="150"
+               Margin="0,40,0,0"
+               Name="MyPhoto"/>
+        <TextBlock Text="版本号 1.1.0.0" 
+                   Foreground="Gray"
+                   HorizontalAlignment="Center"
+                   Margin="0,15"/>
+        <TextBlock Text="个人业余学习UWP制作"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,5,0,10"/>
+        <TextBlock Text="本应用用到以下内容"
+                   HorizontalAlignment="Center"
+                   Margin="0,10"/>
+
+        <HyperlinkButton NavigateUri="http://runjs.cn/detail/ydp3it7b?#comment"
+                         Content="Yiding He大神的程序员老黄历JS源代码"
+                         HorizontalAlignment="Center"/>
+        <HyperlinkButton NavigateUri="http://space.bilibili.com/18340402/#!/index"
+                         Content="B站微软信仰中心 Bob的UWP开发入门教程"
+                         HorizontalAlignment="Center"/>
+        <HyperlinkButton NavigateUri="http://blog.csdn.net/cstester/article/details/7407044"
+                         Content="C#项目获取当前时间的农历时间的类"
+                         HorizontalAlignment="Center"/>
+        <TextBlock Text="本应用完全参考了源代码，并且加入少量UWP独特的特性，如果侵害了任何人的权益，请联系我进行下架处理"
+                   HorizontalAlignment="Center"
+                   Margin="45,15"
+                   FontWeight="Bold"
+                   TextWrapping="Wrap"/>
+        
+    </StackPanel>
+</Page>

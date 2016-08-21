@@ -7,7 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid>
+        <ScrollViewer>
+            <Frame Name="MyFrame" />
+        </ScrollViewer>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal" 
+                    Background="White"
+                    Name="MyBar">
+
+            <AppBarButton Name="DaySelect"
+                          Label="选择日期"
+                          Icon="Clock"
+                          Click="DaySelect_Click">
+            </AppBarButton>
+
+            <AppBarButton Name="About"
+                          Label="关于"
+                          Icon="Read"
+                          Click="About_Click">
+
+            </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

@@ -1,0 +1,170 @@
+﻿<Page
+    x:Class="cxylhl.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:cxylhl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:cxylhl.Models"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical"
+                HorizontalAlignment="Center">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="MyVisualStateGroup">
+                <VisualState x:Name="HorizonLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="750" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LastStackPanel.Orientation" Value="Horizontal"/>
+                        <Setter Target="LastStackPanel.Margin" Value="0,40" />
+                        <Setter Target="CenterStackPanel.Orientation" Value="Horizontal"/>
+                        <Setter Target="MyCalendar.Margin" Value="0,20" />
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="VerticalLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="100" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LastStackPanel.Orientation" Value="Vertical"/>
+                        <Setter Target="LastStackPanel.Margin" Value="0,10" />
+                        <Setter Target="CenterStackPanel.Orientation" Value="Vertical"/>
+                        <Setter Target="MyCalendar.Margin" Value="0,10" />
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <TextBlock Name="MyCalendar"
+                   HorizontalAlignment="Center"
+                   FontSize="25"
+                   Margin="0,10,0,10"
+                   FontWeight="Bold"/>
+        <TextBlock Name="MyLunisolarCalendar"
+                   HorizontalAlignment="Center"
+                   FontSize="15"
+                   Margin="0,5,0,15"/>
+        <StackPanel HorizontalAlignment="Center"
+                    Name="CenterStackPanel"
+                    Orientation="Vertical">
+
+            <StackPanel Name="Fisrt"
+                        Orientation="Horizontal">
+                <Grid>
+                    <Rectangle Fill="#ffef44" 
+                       Name="MyBox1"
+                       Stretch="Fill"/>
+
+                    <TextBlock Text="宜"
+                       Name="MyTextOne"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="20,30"/>
+                </Grid>
+                <Grid>
+                    <Rectangle Fill="#fffdb0" 
+                           Name="MyBox2"
+                           Stretch="Fill"/>
+                    <ListView   Name="MyListViewOne"
+                                IsEnabled="False"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="10,15"
+                                ItemsSource="{x:Bind GoodThings}"
+                                >
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="data:MyEvent">
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold"
+                                                       Name="GoodItemAffair"
+                                                       FontSize="20"
+                                                       Text="{x:Bind Affair}"/>
+                                    <TextBlock Foreground="#525657"
+                                                       Name="GoodItemSuggestion"
+                                                       Text="{x:Bind Suggestion}"
+                                                       TextWrapping="Wrap"
+                                                       Width="200"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Name="Second"
+                        Orientation="Horizontal">
+                <Grid>
+                    <Rectangle Fill="#ff4443" 
+                       Name="MyBox3"
+                       Stretch="Fill"/>
+                    <TextBlock Text="忌"
+                       Name="MyTextTwo"
+                       Foreground="White"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="20,30"
+                       />
+                </Grid>
+                <Grid>
+                    <Rectangle Fill="#fcdfcf" 
+                       Name="MyBox4"
+                       Stretch="Fill"
+                           />
+                    <ListView Name="MyListViewTwo"
+                              IsEnabled="False"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Margin="10,15"
+                              ItemsSource="{x:Bind BadThings}"
+                              >
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="data:MyEvent">
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold" 
+                                                       Name="BadItemAffair"
+                                                       FontSize="20"
+                                                       Text="{x:Bind Affair}"/>
+                                    <TextBlock Foreground="#525657"
+                                                       Name="BadItemSuggrstion"
+                                                       TextWrapping="Wrap"
+                                                       Width="200"
+                                                       Text="{x:Bind Suggestion}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" 
+                    Name="LastStackPanel"
+                    HorizontalAlignment="Center"
+                    Margin="0,10">
+            <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="10,0">
+                <TextBlock Text="座位朝向："/>
+                <TextBlock Name="Desk"
+                           Foreground="DarkGreen"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="10,0">
+                <TextBlock Text="今日益饮："/>
+                <TextBlock Name="Drink"
+                           Foreground="DarkRed"/>
+            </StackPanel>
+        </StackPanel>
+
+    </StackPanel>
+</Page>
